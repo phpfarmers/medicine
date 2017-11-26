@@ -1,0 +1,67 @@
+######################################################################################
+
+###Mongo的配置文件:common/conf/application.ini中
+
+###### db.mongo.projectdb.host     = '127.0.0.1'    #连接的host地址
+###### db.mongo.projectdb.port     = '27017'        #端口
+###### db.mongo.projectdb.user     = ''             #用户名
+###### db.mongo.projectdb.password = ''             #密码
+###### db.mongo.projectdb.dbname   = ''             #数据库
+
+
+### Mongo 调用参数解释
+
+---------  field($params) 参数是数组，用于指定查询的字段
+---------  where($params) 参数是数组，用于指定查询的条件
+---------  sort($params)  参数是数组，用于字段的排序
+---------  skip(int)      参数是数字，偏移量     
+---------  limit(int)     参数是数字, 限制数量
+---------  findAll()  用于查询多条记录
+---------  find()     用于查询一条记录
+---------  count()    数量统计
+
+---------  insert(params),                   插入单条数据,返回值是ID,
+---------  insertAll($params)                插入多条数据，参数是二维数组
+
+---------  update($params)                   执行更新, where条件不能为空
+
+---------  delete()   删除数据, where条件不能为空
+
+### 连接mongo
+$sanger_db = \Common\Custom\MongoTest::getInstance(array('db' => 'projectdb'));
+
+### 选择collection
+$log_operate_db  = $sanger_db->selectTable('sg_log_operate');
+    
+### 单条数据: 
+$info = $log_operate_db->field(array('log_id' => '_id', 'from_id', 'time'))->find(array('_id' => new \MongoId('58ec93d5dde3eed81100002b')));
+
+### 多条数据查询：
+$infos = $log_operate_db->field(array('test_id' => '_id', 'title'))->where(array('_id' =>getObjectId('5a08e4d995a47102470c94b7')))->findAll();
+$infos = $log_operate_db->field(array('test_id' => '_id', 'title'))->skip(1)->limit(2)->sort(array('_id' => -1))->findAll();
+
+### 单条数据查询
+$info = $log_operate_db->field(array('test_id' => '_id', 'title'))->skip(0)->limit(2)->sort(array('_id' => -1))->find();
+$info = $log_operate_db->field(array('test_id' => '_id', 'title'))->where(array('_id' => getObjectId('5a08e4d995a47102470c94b7')))->find();
+
+### 数量统计
+$count = $log_operate_db->where(array('_id' =>getObjectId('5a0a044295a47102470c94cb')))->count();
+$count = $log_operate_db->count();
+
+### 插入单条数据
+$result = $log_operate_db->insert(array('title' => '测试标题1', 'content' => '测试内容1'));
+
+### 插入多条数据
+$params = array(
+    array('title' => '批量测试标题1', 'content' => '批量测试内容1'),
+    array('title' => '批量测试标题2', 'content' => '批量测试内容2'),
+);
+$result = $log_operate_db->insertAll($params);
+
+
+#### 更新数据
+$result = $log_operate_db->where(array('_id' => getObjectId('5a08e4d995a47102470c94b7')))->update(array('content' => '测试更新内容2', 'title' => '更新测试标题'));
+
+#### 删除数据
+$log_operate_db->where(array('_id' => getObjectId('5a0a044195a47102470c94c6')))->delete();
+

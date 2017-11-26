@@ -1,0 +1,84 @@
+######################################################################################
+
+###Mysql的配置文件:common/conf/application.ini中
+
+###### db.mysql.default.host='127.0.0.1'         #连接的host地址
+###### db.mysql.default.user='root'              #用户名
+###### db.mysql.default.password = '123456'      #密码
+###### db.mysql.default.dbname   = 'test'        #数据库
+###### db.mysql.default.table_prefix   = 'sg_'   #表前缀
+
+
+###Mysql连接数据库方式
+
+###### $table = \Db\Mysql::name('ceshi');       #自动带表前缀连接，用于链式操作
+
+###### $table = \Db\Mysql::table('ceshi');      #不带表前缀连接，用于链式操作
+
+###### $db    = \Db\Mysql::connect('default')   #用于自定义连接
+
+###Mysql调用参数解释
+
+---------  alias($str) 表的别名，一般连表查询时会用
+---------  field($params) 参数是数组，用于指定查询的字段
+---------  join($params)  参数是数组，用于连表
+---------  where($params) 参数是数组，用于指定查询的条件
+---------  sort($params)  参数是数组，用于字段的排序
+---------  findAll()  用于查询多条记录
+---------  find()     用于查询一条记录
+
+---------  insert(params, $type = ''),       插入单条数据,返回值是ID, 第二参数 1=> IGNORE, 2=>replace
+---------  insertAll($params)                插入多条数据，参数是二维数组
+---------  insertSql($sql)       执行sql插入,返回值是最后ID
+
+---------  updateSql($sql, $params)          用于执行sql更新, 返回的是影响的行数
+---------  update($params)                   执行更新
+
+---------  delete()   删除数据, where条件不能为空
+
+
+---------  stratTrans()   开始事务   $table->startTrans()
+---------  rollback()     事务回滚   $table->rollback()
+---------  commit()       事务提交   $table->commit()
+
+
+
+###Mysql操作示例【查询】
+
+// 链式查询
+###### $infos = $table->field(array('id', 'title'))->where(array('id = 1'))->sort(array('id desc'))->findAll();
+###### $info  = $table->field(array('id', 'title'))->where(array('id = 1'))->find();
+
+//链式统计
+#####  $count = $table->alias('c')->field(array('c.id'))->join(array('LEFT JOIN `ceshi2` c2 ON c.id=c2.ceshi_id'))->where(array())->group('c.id')->count();
+
+//sql统计
+#####  $count = $table->count("select * from ceshi");
+
+//sql查询
+
+#####  $table->query("select * from ceshi");
+
+        var_print($infos);
+        echo "统计行数是:".$table->count().'<br>';
+
+// 插入单条数据 
+#####  $insert_id = $table->insert(array('title' => '测试1234', 'content' => '内容2321'))
+
+// 插入多条数据
+#####  $insert_id  = $table->insertAll(array(array('title' => 'tc1', 'content' => 'c1'), array('title' => 't2', 'content' => 'c2')));
+
+//sql插入数据
+#####  $sql = "insert into ceshi(title, content) values('测试2', '内容2')";
+#####  $id = $table->insertSql($sql);
+
+// 插入数据
+#####  $count = $table->where(array('id = 2'))->update(array('title' => '更新测试1', 'content' => '更新内容'));
+
+// sql更新数据
+#####  $sql = "update ceshi set content=:content WHERE id=:id";
+#####  $row_count = $table->updateSql($sql, array(':content' => 'abc2242333333333', ':id' => '13'));
+
+
+// 删除数据
+#####  $table->where(array('id=1'))->delete();
