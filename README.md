@@ -22,4 +22,3 @@ swoole-1.7.8+版本
 
 ##**yaf版本**
 任意stable版本
-# medicine

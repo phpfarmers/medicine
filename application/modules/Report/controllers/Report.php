@@ -19,6 +19,6 @@ class ReportController extends BaseController {
         echo "这里是报告页面";
         $test = new \Report\Dao\TestMysqlModel();
         $test->testFind();
-        $this->getView()->display('report\index');
+        $this->getView()->display('index');
 	}
 }
