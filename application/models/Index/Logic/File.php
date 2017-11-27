@@ -1,18 +1,17 @@
 <?php
 /**
- * 测试
+ * 文件系统类
  *
- *
- *
+ * @return void
  */
 namespace Index\Logic;
 
-class TestModel extends \Index\Logic\BaseModel
+class FileModel extends \Index\Logic\BaseModel
 {
     public function __construct() 
     {
         parent::__construct();
-        $this->_db = new \Index\Dao\TestMysqlModel();
+        $this->_db = new \Index\Dao\FileMysqlModel();
     }   
 
     public function ceshi()
@@ -20,6 +19,4 @@ class TestModel extends \Index\Logic\BaseModel
         $infos = $this->_db->testFindAll();
         var_print($infos);
     }    
-
-
 }

@@ -1,9 +1,8 @@
 <?php
 /**
- * 基础操作类
+ * 基础逻辑类
  *
- *
- *
+ * @return void
  */
 namespace Index\Logic;
 

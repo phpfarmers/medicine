@@ -1,7 +1,8 @@
 <?php
 /**
+ * 基础控制器
  *
- *
+ * @return void
  */
 class BaseController extends Yaf\Controller_Abstract 
 {

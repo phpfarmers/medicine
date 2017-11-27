@@ -1,0 +1,70 @@
+/*个人中心*/
+.user-base, .user-security, .user-overview{height: 564px; background: #fff; min-width: 960px; margin-right: 25px;}
+.user-base .content, .user-security .content{width: 370px; margin: 0 auto;  padding-top: 76px; color: #7f7f7f; }
+.user-base .content .photo{width: 96px; text-align: center; margin: 0 auto 34px;}
+.user-base .content img{display:block; width: 94px; height: 94px; border-radius: 50%; border:1px solid #e3e3e3; margin-bottom: 14px;}
+.user-base .content a{display:block; color: #7376fc;}
+.user-base .content li, .user-security .content li{height: 30px; line-height: 30px; margin-bottom: 24px;}
+.user-base .content input, .user-security .content input{width: 320px; height: 30px; line-height: 30px; color: #7f7f7f; text-indent: 1em; border:1px solid #e4e4e4;}
+.user-base .content .btn{width: 70px; height: 32px; border-radius: 4px; background: #7376fc; color:#fff; text-align: center; margin: 0 auto; cursor: pointer;}
+
+.user-security .content{width: 410px;}
+.user-security .content .tip{height: 80px; background: red; margin-bottom: 30px; background: url(../img/center/edit-icon.jpg) center top no-repeat; padding-top: 70px; font-size: 12px; text-align: center;}
+.user-security .content .tip p{margin-bottom: 24px;}
+.user-security .btn{text-align: center; cursor: pointer;}
+.user-security  label{width: 80px; text-align: right; display: inline-block;}
+
+.user-overview{height: auto; background: #f1f3fe;}
+.user-overview .userInfo, .user-overview .notice{width: 690px; height: 180px; background: #fff; padding: 20px 90px 34px 20px;}
+.user-overview .userInfo h3{height: 26px; line-height: 26px; font-size: 16px; margin-bottom: 36px;}
+.user-overview .userInfo .fl{width: 90px; height: 124px; margin-right: 70px;}
+.user-overview .userInfo img{width: 90px; height: 90px; border-radius: 50%;}
+.user-overview .userInfo p{margin-bottom: 16px; text-align: center;}
+.user-overview .userInfo a{color: #7376fc;}
+.user-overview .userInfo .fr{width: 522px;}
+.user-overview .userInfo .fr a{float: right;}
+.user-overview .userInfo li{height: 30px; line-height: 30px;}
+.user-overview .notice{width: 670px; margin-left:70px; overflow: hidden;}
+.user-overview .notice ul{margin-top: 14px;}
+.user-overview .notice li{height: 40px; line-height: 40px; overflow: hidden; text-overflow:ellipsis; white-space: nowrap;}
+.user-overview .item{ margin-top: 10px; height: 174px; background: #fff; padding: 50px 20px;}
+.user-overview .item li{float: left; width: 398px; height: 60px; margin-right: 200px; margin-bottom: 40px; }
+.user-overview .item li a{display: block; height: 60px; line-height: 60px; background: #f6f7fb;}
+
+.user-overview .item li a span{float: left; color:#7c7c7e ;}
+.user-overview .item .icon1, .user-overview .item .icon2, .user-overview .item .icon3, .user-overview .item .icon4, .user-overview .item .icon5{width: 60px; height: 60px; background: url(../img/per-icon1.jpg) center no-repeat; margin-right: 40px;}
+.user-overview .item .icon2{background-image: url(../img/per-icon2.jpg);}
+.user-overview .item .icon3{background-image: url(../img/per-icon3.jpg);}
+.user-overview .item .icon4{background-image: url(../img/per-icon4.jpg);}
+.user-overview .item .icon5{background-image: url(../img/per-icon5.jpg);}
+.user-overview  .item li a em{float: right; font-size: 20px; text-decoration:underline; color: #333; padding-right: 30px;}
+/*登录*/
+.login{width: 900px; height: 572px; margin: 170px auto 0; background: url(../img/login_bg1.png) no-repeat; border: 1px solid #1e4c71; }
+.login form{width:368px; height: auto; margin: 224px 0 0 230px;  color: #8b93bc;}
+.login form li{height: 14px; line-height: 14px; margin-bottom: 12px; background: #f1f3fe; padding: 12px;}
+.login form input{width: 300px; height: 14px; line-height: 14px; border:none; background: #f1f3fe; color: #8b93bc;}
+.login .rem{background: #fff; margin-bottom: 0;}
+.login .rem label{font-size: 12px; color: #333; cursor: pointer;}
+.login .checkbox{float: left; width: 14px; height: 14px; margin-right: 10px; cursor: pointer;}
+.login .btn{height: 38px; line-height: 38px; padding: 0; background: #01ace0; text-align: center; color: #fff; cursor: pointer;}
+.passTip{position: relative; left: 38px; top: -14px;}
+::-webkit-input-placeholder { /* WebKit browsers */color:#8b93bc;}
+::-moz-placeholder { /* Mozilla Firefox 19+ */color:#8b93bc;}
+:-ms-input-placeholder { /* Internet Explorer 10+ */color:#8b93bc;}
+.login .fa-envelope-o, .login .fa-key{margin-right: 20px;}
+/*找回密码*/
+.container-f{width:956px; height: 200px; margin: 68px auto 0; font-size: 14px; color: #333;}
+.header-f{height: 45px; line-height: 45px; padding-bottom: 20px; }
+.header-f .logo{width: 248px; height: 45px; background: url(../img/logo_sanger.png) no-repeat;}
+.header-f a{color: #01ace0;}
+.header-f span{margin: 0 2px;}
+.forgot-w {height: 490px; background: #fff;}
+.forgot-w .title{height: 70px; line-height: 70px; text-align: center; font-size: 20px; color: #fff; background: #01ace0;}
+.forgot-w form{width: 458px; height: 182; margin: 84px auto 0;}
+.forgot-w form label{width: 90px; text-align: right;  display: inline-block; margin-right: 14px;}
+.forgot-w form li{height: 44px; line-height: 44px; margin-bottom: 14px;}
+.forgot-w form li input{width:352px; height: 42px; background: #f1f1f1; border: none; border:1px solid #dfdfdf; text-indent: 24px;}
+.forgot-w form li input.code{width:230px}
+.forgot-w form li .button{border: none; background: #01ace0; width:112px; height: 44px; text-align: center; margin-left: 10px; text-indent: 0; color: #fff; cursor: pointer;}
+.forgot-w form li.sub{margin-top: 24px;}
+.forgot-w form .btn{width:354px; height: 44px; background: #01ace0; border-radius: 6px; margin-left: 104px; text-align: center; color:#fff; cursor: pointer;}	

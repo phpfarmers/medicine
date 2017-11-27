@@ -1,10 +1,9 @@
 <?php
 /**
- * 基础数据类
  *
- * @return void
+ *
  */
-namespace Index\Dao;
+namespace Pt\Dao;
 
 class BaseModel
 {

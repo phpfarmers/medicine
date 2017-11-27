@@ -45,19 +45,7 @@ class Router extends \yaf\Request_Abstract implements \Yaf\Route_Interface
             }
         }
         $request->params = $params;
-/*        
-        $smarty_params = Yaf\Application::app()->getConfig()->smarty;
-        
-        $template_params = array();
-        foreach ($smarty_params as $key =>  $val){
-            $template_params[$key] = $val;
-        } 
 
-        $template_dir = APP_PATH.'/modules/'.$request->module.'/views/';
-        $template_params['compile_dir'] = APP_PATH. '/../Runtime/compile/'.$request->module.'/';
-        $smarty = new \Smarty\Adapter($template_dir, $template_params);
-        \Yaf\Dispatcher::getInstance()->setView($smarty);
-*/
         return true;
     }
     
@@ -67,13 +55,15 @@ class Router extends \yaf\Request_Abstract implements \Yaf\Route_Interface
         $hosts = explode('.', $host);
         
         $config = array(
+            'www'    => 'Index',
             'report' => 'Report',
         );
 
         if (isset($config[$hosts[0]])) {
             return $config[$hosts[0]];
         }
-        return '';
+
+        return $config['www'];
     }
 
     public function assemble(array $mvc, array $query = null)

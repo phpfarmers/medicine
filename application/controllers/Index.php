@@ -19,8 +19,8 @@ class IndexController extends BaseController
 	public function indexAction() 
     {
         $this->getView()->assign("name", '首页ceshi');
-        $test = new \Index\Logic\TestModel();
-        echo $test->ceshi();
+        //$test = new \Index\Logic\TestModel();
+        //echo $test->ceshi();
         //$this->display('../inc/header');
 	}
 
@@ -28,7 +28,7 @@ class IndexController extends BaseController
     {
         echo '<pre>';
         print_r($config = Yaf\Registry::get('config'));
-        echo $config['directory'];
+        echo $config['directory'];exit;
         $this->getView()->display();
     }
 }
